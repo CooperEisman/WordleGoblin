@@ -15,10 +15,11 @@ public class WordManager {
 
     //Creates New Instance, Fills Arrays
     public WordManager() {
+        words = new ArrayList<String>();
+
         try {
             file = new File("src/validwords.txt");
             reader = new Scanner(file);
-            words = new ArrayList<String>();
 
             while (reader.hasNextLine()) {
                 words.add(reader.next());
@@ -28,8 +29,32 @@ public class WordManager {
         }
     }
 
-    public String getWord(int index) {
-        return words.get(index);
+    //Eliminates Words based on data, Return amount of words eliminated
+    public int calculate(char[][] data) {
+        int count = 0;
+        ArrayList<String> temp = new ArrayList<String>();
+
+        for (int i = 0; i < 26; i++) {
+            for (int j = 1; j < 6; j++) {
+                if (data[j][i] == '0') {
+                   for (String s : words) {
+                       if (s.charAt(i) != data[0][i]) {
+                           temp.add(s);
+                       } else {
+                           count++;
+                       }
+                   }
+                } else if (data[j][i] == '2') {
+                    for (String s : words) {
+                        if (s.charAt(i) == data[0][i]) {
+                            temp.add(s);
+                        } else {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

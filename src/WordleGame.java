@@ -30,7 +30,7 @@ public class WordleGame {
 
             //Grey Inputs Turn all Arr to O
             if (result.charAt(x) == 'R') {
-                for (int y = 1; y <= 6; y++) {
+                for (int y = 1; y < 6; y++) {
                     letters[y][letterIndex] = '0';
                 }
             }
@@ -39,7 +39,7 @@ public class WordleGame {
             else if (result.charAt(x) == 'Y') {
                 letters[x+1][letterIndex] = '0';
 
-                for (int y = 0; y <= 5; y++) {
+                for (int y = 1; y <= 5; y++) {
                     if (!(letters[y][letterIndex] == '0') && !(letters[y][letterIndex] == '2')){
                         letters[y][letterIndex] = '1';
                     }

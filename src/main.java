@@ -5,6 +5,13 @@
 
 public class main {
     public static void main(String[] args) {
+        WordleGame w = new WordleGame();
+
+        w.addLine("HALLO","YYRRR");
+
+        for (int i = 0; i < 6; i++) {
+            System.out.print(w.getLetters()[i][0]);
+        }
 
     }
 }
