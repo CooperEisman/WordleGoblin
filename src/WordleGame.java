@@ -1,6 +1,6 @@
 // Author:      Cooper Eisman
 // Created:     2209 20MAR22
-// Modified:    2230 20MAR22
+// Modified:    2358 20MAR22
 // Purpose:     Manager for game features
 
 import java.util.Arrays;

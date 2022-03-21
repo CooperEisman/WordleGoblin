@@ -1,6 +1,6 @@
 // Author:      Cooper Eisman
 // Created:     2259 20MAR22
-// Modified:    2259 20MAR22
+// Modified:    2352 20MAR22
 // Purpose:     Manages currenty available words
 
 import java.io.File;
@@ -32,31 +32,28 @@ public class WordManager {
 
     //Eliminates Words based on data, Return amount of words eliminated
     public int calculate(char[][] data) {
-        int count = 0;
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<String>(words);
 
         for (int i = 0; i < 26; i++) {
             for (int j = 1; j < 6; j++) {
                 if (data[j][i] == '0') {
                    for (String s : words) {
-                       if (s.charAt(j-1) != data[0][i]) {
-                           temp.add(s);
-                       } else {
-                           count++;
+                       if (s.charAt(j-1) == data[0][i]) {
+                           temp.remove(s);
                        }
                    }
                 } else if (data[j][i] == '2') {
                     for (String s : words) {
-                        if (s.charAt(j-1) == data[0][i]) {
-                            temp.add(s);
-                        } else {
-                            count++;
+                        if (s.charAt(j-1) != data[0][i]) {
+                            temp.remove(s);
                         }
                     }
                 }
             }
         }
 
+        int count = words.size() - temp.size();
+        System.out.println(count);
         words = temp;
         return count;
     }

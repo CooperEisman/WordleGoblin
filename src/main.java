@@ -5,12 +5,8 @@
 
 public class main {
     public static void main(String[] args) {
-        WordleGame w = new WordleGame();
-        WordManager x = new WordManager();
-
-        w.addLine("ADIEU","YRRRR");
-
-        System.out.print(x.calculate(w.getLetters()));
+        Runner r = new Runner();
+        System.out.println(r.add("ADIEU","YRRRR"));
 
     }
 }
