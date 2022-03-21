@@ -5,6 +5,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class WordManager {
             reader = new Scanner(file);
 
             while (reader.hasNextLine()) {
-                words.add(reader.next());
+                words.add(reader.next().toUpperCase(Locale.ROOT));
             }
         } catch (FileNotFoundException e) {
             System.out.println("Operation Failed, File Not Found");
@@ -38,7 +39,7 @@ public class WordManager {
             for (int j = 1; j < 6; j++) {
                 if (data[j][i] == '0') {
                    for (String s : words) {
-                       if (s.charAt(i) != data[0][i]) {
+                       if (s.charAt(j-1) != data[0][i]) {
                            temp.add(s);
                        } else {
                            count++;
@@ -46,7 +47,7 @@ public class WordManager {
                    }
                 } else if (data[j][i] == '2') {
                     for (String s : words) {
-                        if (s.charAt(i) == data[0][i]) {
+                        if (s.charAt(j-1) == data[0][i]) {
                             temp.add(s);
                         } else {
                             count++;
@@ -55,6 +56,9 @@ public class WordManager {
                 }
             }
         }
+
+        words = temp;
+        return count;
     }
 }
 

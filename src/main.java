@@ -6,12 +6,11 @@
 public class main {
     public static void main(String[] args) {
         WordleGame w = new WordleGame();
+        WordManager x = new WordManager();
 
-        w.addLine("HALLO","YYRRR");
+        w.addLine("ADIEU","YRRRR");
 
-        for (int i = 0; i < 6; i++) {
-            System.out.print(w.getLetters()[i][0]);
-        }
+        System.out.print(x.calculate(w.getLetters()));
 
     }
 }
