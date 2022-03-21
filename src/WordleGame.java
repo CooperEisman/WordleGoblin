@@ -26,6 +26,11 @@ public class WordleGame {
 
         return false;
     }
+
+    //Recalculates Arrays of Letters
+    private void calculate() {
+
+    }
 }
 
 //Manages one line of the game only. For use in WordleGame
