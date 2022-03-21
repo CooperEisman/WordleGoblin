@@ -8,15 +8,24 @@ import java.util.Locale;
 public class Runner {
     private WordleGame w = new WordleGame();
     private WordManager x = new WordManager();
+    private ProbabilityManager p = new ProbabilityManager(x.availableWords());
+    private double remaining;
+    private double original;
 
-    public Runner() {}
+    public Runner() {
+        remaining = 12972.0;
+        original = 12972.0;
+
+    }
 
     //Adds a new line, returns metrics
     public String add(String text, String result) {
         w.addLine(text.toUpperCase(Locale.ROOT),result.toUpperCase(Locale.ROOT));
-        System.out.println(w.getLetters()[2][0]);
         int c = x.calculate(w.getLetters());
-        return "Removed " + c + "/12972 words (" + (String.valueOf(c/129.7200000001).substring(0,5)) + "%)";
+        remaining -= c;
+        p = new ProbabilityManager(x.availableWords());
+        System.out.println(p.calculate());
+        return "Removed " + c + "/12972 words (" + (String.valueOf(100.0 * (original - remaining)/(original)).substring(0,5)) + "%)";
     }
 
 

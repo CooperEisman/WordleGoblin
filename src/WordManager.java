@@ -5,6 +5,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -53,9 +54,21 @@ public class WordManager {
         }
 
         int count = words.size() - temp.size();
-        System.out.println(count);
         words = temp;
         return count;
+    }
+
+    public String[] availableWords() {
+
+        Object[] a =  words.toArray();
+        String[] b = new String[a.length];
+        int i = 0;
+
+        for (Object obj : a) {
+            b[i] = obj + "";
+            i++;
+        }
+        return b;
     }
 }
 

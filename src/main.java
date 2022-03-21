@@ -6,7 +6,10 @@
 public class main {
     public static void main(String[] args) {
         Runner r = new Runner();
-        System.out.println(r.add("ADIEU","YRRRR"));
+        System.out.println(r.add("Adieu","RRRGR"));
+        System.out.println(r.add("borne","RGGRY"));
+        System.out.println(r.add("corer","GGGGR"));
+
 
     }
 }
